@@ -5,6 +5,11 @@ struct Fraction {
   void num(int numerator);
   void den(int denominator);
 
+  Fraction &operator+=(const Fraction &b);
+  Fraction &operator-=(const Fraction &b);
+  // Fraction operator+(const Fraction &b);
+  Fraction operator-(const Fraction &b);
+
   int num() const { return m_numerator; }
   int den() const {
     int temp{m_denominator};

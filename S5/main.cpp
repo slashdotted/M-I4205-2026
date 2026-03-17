@@ -3,42 +3,26 @@
 
 using namespace std;
 
-void print(const Fraction &f) { cout << f.num() << "/" << f.den() << endl; }
+Fraction operator+(const Fraction &a, const Fraction &b) {
+  Fraction temp{a};
+  temp += b;
+  return temp;
+}
 
-Fraction get_half() {
-  // Fraction on the heap
-  Fraction *g{new Fraction{8, 3}};
-  // Fraction on the stack
-  // initialized using the constructor
-  Fraction f{8, 3};
-  // f.num(8);
-  // f.den(3);
-  delete g;
-  return f;
+ostream &operator<<(ostream &o, const Fraction &f) {
+  o << f.num() << "/" << f.den();
+  return o;
 }
 
 int main() {
-  Fraction p{9};
-  print(p);
-  cout << "---------------\n";
-  print(get_half());
-  cout << "---------------\n";
-  Fraction f1{0, 1}; // An object on the stack
-  print(f1);
-  cout << "---------------\n";
-  // f1.numerator = 2;
-  f1.num(2);
-  // f1.denominator = 0;
-  f1.den(0);
-  print(f1);
-  // f1.numerator = 7;
-  f1.num(7);
-  // f1.denominator = 3;
-  f1.den(3);
-  print(f1);
-
-  Fraction t;
-  t = 7;
-  print(t);
-  print(42);
+  Fraction p{9, 6};
+  Fraction q{2, 3};
+  int i{0};
+  i += 7;
+  p += q;
+  p.operator+=(q);
+  p + q; // p.operator+
+  p + 5; // p.operator+(5) => p.operator+(Fraction{5})
+  5 + p; // operator+(5,p) => operator(Fraction{5},p)$
+  std::cout << p << "hello";
 }
