@@ -18,27 +18,28 @@ Fraction get_half() {
 }
 
 int main() {
-  Fraction p{9};
-  print(p);
-  cout << "---------------\n";
-  print(get_half());
-  cout << "---------------\n";
-  Fraction f1{0, 1}; // An object on the stack
-  print(f1);
-  cout << "---------------\n";
-  // f1.numerator = 2;
-  f1.num(2);
-  // f1.denominator = 0;
-  f1.den(0);
-  print(f1);
-  // f1.numerator = 7;
-  f1.num(7);
-  // f1.denominator = 3;
-  f1.den(3);
-  print(f1);
-
+  if (1) {
+    Fraction p{9};
+    print(p);
+    cout << "---------------\n";
+    print(get_half());
+    cout << "---------------\n";
+    Fraction f1{0, 1}; // An object on the stack
+    print(f1);
+    cout << "---------------\n";
+    // f1.numerator = 2;
+    f1.num(2);
+    // f1.denominator = 0;
+    f1.den(0);
+    print(f1);
+    // f1.numerator = 7;
+    f1.num(7);
+    // f1.denominator = 3;
+    f1.den(3);
+    print(f1);
+  }
   Fraction t;
-  t = 7;
+  t = 7; // t = Fraction{7}; <= automatic conversion
   print(t);
-  print(42);
+  print(42); // print(Fraction{42}) <= automatic conversion
 }
