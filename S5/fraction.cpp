@@ -1,5 +1,7 @@
 #include "fraction.h"
 
+Fraction operator+(Fraction a, const Fraction &b) { return a += b; }
+
 Fraction::Fraction(int numerator, int denominator)
     : m_numerator{numerator}, m_denominator{denominator} {}
 
