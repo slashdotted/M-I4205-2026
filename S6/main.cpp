@@ -1,3 +1,4 @@
+#include <functional>
 #include <iostream>
 
 void print(int i, const std::string &header = "--- value ---") {
@@ -59,6 +60,17 @@ int main() {
 
   auto h = "--- value ---";
   auto f = "--- ---";
+
+  // [ capture-list ] (arguments) -> retType { body };
+
+  // Capture list "rules":
+  // [a,b,c]  capture variables a,b,c by value
+  // [&a,&b,&c] capture variable a,b,c by reference
+  // [=] capture everything by value
+  // [&] capture everything by reference
+  // [=,&b] capture everything by value, except b (by reference)
+  // [&,a] capture everything by reference, except a (by value)
+
   // auto p3 = [h,f](int i) -> void {
   auto p3 = [=](int i) -> void {
     std::cout << h << std::endl;
@@ -74,8 +86,21 @@ int main() {
     std::cout << i << std::endl;
     std::cout << f << std::endl;
   };
-
-  /*auto c = [counter = 0]() { return ++counter; };
   p4(42);
-  p4(77);*/
+  p4(77);
+
+  // TODO: Create a lambda which counts (and returns)
+  // how many times it has been called
+  unsigned int counter{0};
+  auto countFn = [&counter]() mutable { return ++counter; };
+
+  auto countFn2 = [counter = 0]() mutable { return ++counter; };
+
+  // Behind "auto" we have std::function
+  // std::function<retType(arguments)>
+  std::function<int()> countFn3 = [counter = 0]() mutable { return ++counter; };
+
+  // Behind "auto" we have std::function
+  // std::function<retType(arguments)>
+  std::function<int(int, int)> lambdaFn = [](int x, int y) { return x + y; };
 }
