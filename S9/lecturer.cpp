@@ -7,10 +7,15 @@ using std::string;
 
 Lecturer::Lecturer(string name, string institute, int nr, string studies,
                    string course)
-    : m_studies{studies}, m_course{course} {
+    : Employee{name, institute, nr}, m_studies{studies}, m_course{course} {
   cout << "Costructing Lecturer " << this << endl;
 }
 Lecturer::~Lecturer() { cout << "Destroying Lecturer" << endl; }
+
+void Lecturer::fire()
+{
+
+}
 string Lecturer::studies() const { return m_studies; }
 string Lecturer::course() const { return m_course; }
 string Lecturer::classname() const { return "Lecturer"; }

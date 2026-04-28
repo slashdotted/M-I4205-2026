@@ -34,6 +34,11 @@ int Employee::employeenr() const
     return m_employeenr;
 }
 
+void Employee::hire()
+{
+
+}
+
 string Employee::classname() const
 {
     return "Employee";

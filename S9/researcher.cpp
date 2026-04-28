@@ -7,9 +7,16 @@ using std::string;
 
 Researcher::Researcher(string name, string institute, int nr,
                        string researcharea)
-    : m_researcharea{researcharea} {
+    : Employee{name, institute, nr}, m_researcharea{researcharea} {
   cout << "Costructing Researcher " << this << endl;
 }
 Researcher::~Researcher() { cout << "Destroying Researcher" << endl; }
+
+void Researcher::fire()
+{
+
+}
 const string &Researcher::researcharea() const { return m_researcharea; }
-string Researcher::classname() const { return "Researcher"; }
+string Researcher::classname() const {
+  return Employee::classname() + "Researcher";
+}
