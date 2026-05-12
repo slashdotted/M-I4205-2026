@@ -1,0 +1,1 @@
+#include "lecturerresearcher.h"

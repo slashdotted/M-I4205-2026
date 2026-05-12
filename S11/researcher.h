@@ -1,0 +1,16 @@
+#pragma once
+#include "employee.h"
+#include <string>
+
+class Researcher : public Employee {
+public:
+  Researcher(std::string name, std::string institute, int nr,
+             std::string researcharea);
+  ~Researcher();
+  const std::string &researcharea() const;
+  std::string classname() const override;
+  void fire() override;
+
+protected:
+  std::string m_researcharea;
+};
