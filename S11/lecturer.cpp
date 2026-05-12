@@ -12,10 +12,7 @@ Lecturer::Lecturer(string name, string institute, int nr, string studies,
 }
 Lecturer::~Lecturer() { cout << "Destroying Lecturer" << endl; }
 
-void Lecturer::fire()
-{
-
-}
+void Lecturer::fire() {}
 string Lecturer::studies() const { return m_studies; }
 string Lecturer::course() const { return m_course; }
 string Lecturer::classname() const { return "Lecturer"; }
