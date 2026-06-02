@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -18,8 +19,15 @@ public:
 
 private slots:
   void casellaClick();
+  void nuovaPartita();
+
+  // Dichiarazione di un segnale
+signals:
+  void inizioPartita(QString messaggio);
 
 private:
+  void randomizzaCelle();
+  void handleClick(QPushButton *sorgente);
   Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
